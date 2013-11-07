@@ -1,0 +1,423 @@
+
+body {
+  background-color: #fcfcf7;
+  margin: 0px;
+  font-family:"microsoft yahei",STHeiti,Helvetica,Arial,sans-serif;
+}
+
+.warpper {
+  background: url("/images/index/warpper_background.jpg") center 0 no-repeat;
+  margin: 0 auto;
+}
+
+.info_container {
+  height: 700px;
+  width: 970px;
+  margin: 0 auto;
+}
+
+.logo_and_slogent {
+  height: 440px;
+  width: 360px;
+  background-color: #030303;
+  margin-top: 126px;
+  position: relative;
+  float: left;
+  background: url("/images/index/logo_and_slogent.png") center 0 no-repeat;
+}
+
+.phone_example {
+  height: 630px;
+  width: 560px;
+  float: right;
+  margin-top: 70px;
+}
+
+.download_info_container {
+  margin-top: 290px;
+}
+
+.btn_download_container {
+  height: 150px;
+  width: 180px;
+  float: left;
+}
+
+.download_QR_code {
+  height: 150px;
+  width: 150px;
+  background: url("/images/index/qr_code.png");
+  float: left;
+  margin-left: 30px;
+}
+
+.btn_download_Android {
+  width: 180px;
+  height: 63px;
+}
+
+.btn_download_iOS {
+  width: 180px;
+  height: 63px;
+  margin-top: 24px;
+}
+
+.btn_download_Android_img {
+}
+
+.btn_download_iOS_img {
+}
+
+.iPhone_template {
+  height: 630px;
+  width: 283px;
+  background-color: #F0F6F9;
+  background: url("/images/index/iPhone_tamplate.png");
+  float:left;
+}
+
+.interface_container{
+  background-color: #F0F6F9;
+  height: 422px;
+  width: 238px;
+  margin-left: 24px;
+  margin-top: 88px;
+  float: left;
+  position: absolute;
+}
+
+.interface_container#front {
+  background: url("/images/index/screenshot_1.jpg");
+}
+.interface_container#back{
+  display: none;
+  background: url("/images/index/screenshot_2.jpg");
+}
+
+#line {
+  position: relative;
+  width: 65px;
+  height: 9px;
+  top: 200px;
+  right: -235px;
+  background: url("/images/index/line_1.png");
+}
+
+.container {
+  width: 998px;
+  height: 350px;
+  background-color: #c2c2c2;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: url("/images/index/announcement_background.jpg") no-repeat;
+  position: static;
+}
+
+.announcement {
+  height: 190px;
+  width: 480px;
+  background-color: white;
+  margin: 120px auto auto 60px;
+  float: left;
+  overflow: auto; 
+  overflow-y: hidden;
+}
+.news_item {
+  padding: 10px;
+}
+
+.news_item a {
+  color: #2ac4d4;
+  text-decoration: none;
+}
+
+.entrances_container {
+  width: 385px;
+  height: auto;
+  margin-left: 580px;
+}
+
+.billboard {
+  height: 225px;
+  width: 354px;
+  margin-left: 30px;
+}
+
+.link_ad {
+  height: 225px;
+  width: 354px;
+  text-indent: -9999px;
+  display: block;
+}
+
+.btn_entrances_container {
+  width: 394px;
+  height: 100px;
+  margin-top: 24px;
+  margin-left: 17px;
+}
+
+.btn_ambassader {
+  height: 100px;
+  width: 100px;
+  margin-left:20px;
+  float: left;
+  -moz-box-shadow:0px 1px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow:0px 1px rgba(0, 0, 0, 0.47);
+  box-shadow:0px 1px 4px rgba(0, 0, 0, 0.47);
+}
+
+.btn_school_club {
+  height: 100px;
+  width: 100px;
+  margin-left:20px;
+  float: left;
+  -moz-box-shadow:0px 1px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow:0px 1px rgba(0, 0, 0, 0.47);
+  box-shadow:0px 1px 4px rgba(0, 0, 0, 0.47);
+}
+
+
+.btn_my_school {
+  height: 100px;
+  width: 100px;
+  margin-left:20px;
+  float: left;
+  -moz-box-shadow:0px 1px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow:0px 1px rgba(0, 0, 0, 0.47);
+  box-shadow:0px 1px 4px rgba(0, 0, 0, 0.47);
+}
+
+.link_btn {
+  height: 100px;
+  width: 100px;
+  text-indent: -9999px;
+  display: block;
+}
+
+#index_footer {
+  height: 122px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #f2f1ed;
+  border-top: solid 1px #d9d8d5;
+  margin-top: 80px;
+}
+
+.footer_info_container{
+  height: 122px;
+  width: 970px;
+  margin:0 auto;
+}
+
+.link_container {
+  margin-top: 40px;
+  float: left;
+  margin-top: 37px;
+}
+
+#index_footer .link_container a,
+#index_footer .copyright {
+  color: #b2b2b2;
+}
+
+#index_footer .copyright {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 13px;
+}
+
+#index_footer .link_container a {
+  font-size: 15px;
+  display: block;
+  width: 65px;
+  margin: 0px 30px 0px 0px;
+  float: left;
+  text-decoration: none;
+}
+
+.link_sns_btn {
+  float: left;
+  width: 195px;
+  height: auto;
+  margin-left: 395px;
+  margin-top: 34px;
+}
+
+.sns_btn {
+  display: block;
+  float: left;
+}
+
+.left {
+  float:left;
+}
+.right {
+  float:right;
+}
+
+.other_info_container {
+  margin-top: 20px;
+  color: #b2b2b2;
+  font-size: 13px;
+  float: left;
+}
+
+.action-pager {
+    margin-top:150px;
+    margin-left:12px;
+    float: left;
+}
+
+.action-pager .pagenum {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #fff;
+    margin-bottom: 11px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    cursor: pointer; cursor: hand;
+    background-color: #fff;
+    opacity: 0.5;
+}
+
+.action-pager .pagenum.active {
+    opacity: 1.0;   
+}
+
+
+.callout {
+    font-size: 12px;
+    opacity: 0.5;
+    cursor: pointer; cursor: hand;    
+    background: #F0F6F9;
+    border: 0px;
+    position: relative;
+}
+
+.callout.active {
+    opacity: 1.0;
+}
+
+.jcarousel-skin-tango {
+    margin-top: -27px;
+    margin-left: 5px;
+    float: left;
+}
+
+.jcarousel-skin-tango .jcarousel-container-vertical {
+    width: 240px;
+    height: 615px;
+    padding: 0px;
+    margin-top: -20px;
+    margin-left:5px;
+}
+
+
+.jcarousel-skin-tango .jcarousel-clip-vertical {
+    width:  240px;
+    height: 615px;
+}
+
+.jcarousel-skin-tango .jcarousel-item {
+    width: 179px;
+    height: 141px;
+    padding: 10 10 10 20;
+}
+
+
+.empty {
+    visibility: hidden;
+}
+
+.callout .icon {
+    position: absolute;
+    left: -30px;
+    top: 60px;
+    width: 48px;
+    height: 40px;
+}
+
+.callout .icon.one {
+    background-image: url("/images/index/icon_1.png")
+}
+
+.callout .icon.two {
+    background-image: url("/images/index/icon_2.png")
+}
+
+.callout .icon.three {
+    background-image: url("/images/index/icon_3.png")
+}
+
+.callout .icon.four {
+    background-image: url("/images/index/icon_4.png")
+}
+
+.callout .icon.five {
+    background-image: url("/images/index/icon_5.png")
+}
+
+.callout .text {
+  padding: 5px 15px 5px 5px;
+}
+.callout .text .main-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top:17px;
+  margin-bottom:10px;
+}
+
+.callout .text .sub-text {
+  font-size:14px;
+}
+
+#iphone {
+    width:380;
+    height:743;
+    float:left;
+    background-image: url("/iphone_box.png");
+}
+
+.jcarousel-skin-tango .jcarousel-container {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+   border-radius: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl {
+  direction: rtl;
+}
+
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    width: 245px;
+    padding: 20px 40px;
+}
+
+.jcarousel-skin-tango .jcarousel-clip {
+    overflow: hidden;
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+  margin-left: 0;
+    margin-right: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
+  margin-left: 10px;
+    margin-right: 0;
+}
+
+.jcarousel-skin-tango .jcarousel-item-vertical {
+    margin-bottom: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+.clear {
+  clear:both;
+}

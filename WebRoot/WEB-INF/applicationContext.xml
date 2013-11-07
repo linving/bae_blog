@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+           http://www.springframework.org/schema/aop  
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+           http://www.springframework.org/schema/tx   
+           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 用注解方式注入bean -->
+	<context:annotation-config />
+	<context:component-scan base-package="com.blog" />
+	<!-- 数据库连接池 -->
+	<!-- 数据库的地址是sqld.duapp.com，端口是4050，dbname是在应用管理的“云环境管理 > 服务管理 -> MySQL（数据库）”中创建的数据库名称，用户名密码为应用的API 
+		Key，Secret Key。 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<!-- 本地数据库 -->
+	 <property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/baidu?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true" />
+		<property name="username" value="root" />
+		<property name="password" value="root" /> 
+		
+		<!-- 百度云平台 数据库 MySQL -->
+		<!-- 
+		<property name="url"
+			value="jdbc:mysql://sqld.duapp.com:4050/kxNVAjkYQXioBImkgSXv" />
+		<property name="username" value="dIlv3sSdE3kzi0RAMKTyqgZ9" />
+		<property name="password" value="9lj17YHhf4pIKOPL5SY4VHGmGpFR1vbn" />
+		 -->
+	</bean>
+	<!-- hibernate sessionFactory 创建 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.blog.model</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<!-- 事物配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut expression="execution(public * com.blog.service..*.*(..))"
+			id="myPointcut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
+	</aop:config>
+
+</beans>

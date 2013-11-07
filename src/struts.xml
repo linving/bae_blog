@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring"/>
+	<package name="user" extends="struts-default" namespace="/user">
+	
+		<!-- 定义权限拦截器 -->
+		<interceptors>
+			<interceptor name="authInterceptor" class="auth">
+			</interceptor>
+			<interceptor-stack name="authority">
+				<!-- Sturts 默认拦截站 -->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+	
+	
+	
+	
+		<action name="register">
+			<result>/jsp/register.jsp</result>
+		</action>
+
+		<action name="writeblog">
+			<result>/jsp/edit_blog.jsp</result>
+		</action>
+		<!-- 登陆 -->
+		<action name="login" class="userAction" >
+			<result>/jsp/sign_in.jsp</result>
+		</action>
+		<!-- 关于我 -->
+      <action name="userdetail">
+      	<result>/jsp/user_detail.jsp</result>
+      	<interceptor-ref name="authority"></interceptor-ref>			     	
+      </action>
+
+		<!-- 用户注册 -->
+		<action name="userAdd" class="userAction" method="addUser">
+			<result name="success">/jsp/user_detail.jsp</result>
+			<result name="list">/list.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="login">/jsp/register.jsp</result>
+			
+		</action>
+		<!-- 用户登录 -->
+		<action name="userSign" class="userAction" method="signUser">
+			<result name="success">/jsp/blog_index.jsp</result>
+			<result name="sign">/jsp/sign_in.jsp</result>
+		</action>
+		
+		<!-- 写博客 -->
+		<action name="blogAdd" class="blogAction" method="saveBlog">
+			<result name="success">/jsp/list_blog.jsp</result>
+			<interceptor-ref name="authority"></interceptor-ref>			
+		 </action>
+		<!-- 列出某用户的博客 -->
+		<action name="listBlogs" class="blogAction" method="listUserBlogs">
+			<result name="success">/jsp/list_blog.jsp</result>
+	    	<interceptor-ref name="authority"></interceptor-ref>			     				
+		</action>
+		<!-- 列出所有用户发过的博客 -->
+		<action name="allblogs" class="blogAction" method="listAllBlogs">
+			<result name="success">/jsp/blog_index.jsp</result>
+		</action>
+
+		<!-- 博客的详细内容 -->
+		<action name="blogdetail" class="blogAction" method="blogDetail">
+			<result name="success">/jsp/blog_detail.jsp</result>
+		</action>
+		<!-- 评论博客 action -->
+		<action name="commentblog" class="commentAction" method="saveComment">
+			<result name="success">/success.jsp</result>
+			<interceptor-ref name="authority"></interceptor-ref>			
+		</action>
+
+	</package>
+
+	<package name="admin" extends="user" namespace="/admin">
+		<action name="listuser" class="managerUsers" method="listUsers">
+			<result name="success">/list.jsp</result>
+		</action>
+	</package>
+
+	<package name="index" namespace="/" extends="struts-default">
+		<default-action-ref name="index" />
+		<action name="index">
+			<result>/jsp/index.jsp</result>
+		</action>
+	</package>
+</struts>
